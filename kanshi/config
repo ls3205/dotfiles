@@ -1,0 +1,8 @@
+profile Dock {
+		output "ASUSTek COMPUTER INC VG278 M3LMQS115205" enable 1920x1080@120.0Hz position 0,0
+		output eDP-1 disable
+}
+
+profile Laptop {
+		output eDP-1 enable 1920x1200 position 0,0
+	}
