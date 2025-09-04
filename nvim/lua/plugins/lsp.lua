@@ -12,6 +12,7 @@ return {
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"css-lsp",
+				"python-lsp-server",
 			})
 		end,
 	},
@@ -144,20 +145,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = function()
-			require("java").setup()
-			require("lspconfig").jdtls.setup({
-				settings = {
-					java = {
-						configuration = {
-							runtimes = {
-								name = "JRE21",
-								path = "/usr/lib/jvm/java-21-openjdk/",
-								default = true,
-							},
-						},
-					},
-				},
-			})
 			local keys = require("lazyvim.plugins.lsp.keymaps").get()
 			vim.list_extend(keys, {
 				{

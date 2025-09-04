@@ -152,12 +152,18 @@ return {
 
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		enabled = false,
+		enabled = true,
+		opts = {
+			latex = {
+				enabled = false,
+			},
+		},
 	},
 
 	{
 		"folke/snacks.nvim",
 		opts = {
+			image = {},
 			dashboard = {
 				preset = {
 					header = [[
