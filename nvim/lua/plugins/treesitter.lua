@@ -1,6 +1,4 @@
 return {
-	{ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
-
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
@@ -69,4 +67,5 @@ return {
 			vim.treesitter.language.register("markdown", "mdx")
 		end,
 	},
+	{ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 }
