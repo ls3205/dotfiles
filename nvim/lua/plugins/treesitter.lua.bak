@@ -1,9 +1,6 @@
 return {
-	{ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
-
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
 		opts = {
 			ensure_installed = {
 				"astro",
@@ -17,6 +14,11 @@ return {
 				"http",
 				"java",
 				"php",
+				"latex",
+				"typst",
+				"norg",
+				"python",
+				"vue",
 				"rust",
 				"scss",
 				"sql",
@@ -54,8 +56,7 @@ return {
 			},
 		},
 		config = function(_, opts)
-			local TS = require("nvim-treesitter")
-			TS.setup(opts)
+			require("nvim-treesitter.configs").setup(opts)
 
 			-- MDX
 			vim.filetype.add({
@@ -66,4 +67,5 @@ return {
 			vim.treesitter.language.register("markdown", "mdx")
 		end,
 	},
+	{ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 }
