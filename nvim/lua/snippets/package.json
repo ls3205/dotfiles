@@ -4,9 +4,11 @@
 		"vscode": "^1.11.0"
 	},
 	"contributes": {
-		"snippets": [{
-			"language": "typescriptreact",
-			"path": "./tjsx.json"
-		}]
+		"snippets": [
+			{
+				"language": "typescriptreact",
+				"path": "./tjsx.json"
+			}
+		]
 	}
 }

@@ -6,6 +6,6 @@ return {
 	build = "make install_jsregexp",
 
 	opts = function()
-		require("luasnip.loaders.from_vscode").load({ paths = { "../snippets" } })
+		require("luasnip.loaders.from_vscode").load({ paths = { "./lua/snippets" } })
 	end,
 }

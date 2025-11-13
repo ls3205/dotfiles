@@ -234,6 +234,13 @@ return {
 
 	{
 		"saghen/blink.cmp",
+		lazy = false,
+		dependencies = {
+			{
+				"L3MON4D3/LuaSnip",
+				version = "v2.*",
+			},
+		},
 		opts = {
 			completion = {
 				menu = {
@@ -243,6 +250,15 @@ return {
 			signature = {
 				window = {
 					winblend = vim.o.pumblend,
+				},
+			},
+			snippets = { preset = "luasnip" },
+			sources = {
+				default = {
+					"snippets",
+					"lsp",
+					"path",
+					"buffer",
 				},
 			},
 		},
