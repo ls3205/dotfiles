@@ -37,6 +37,7 @@ alias sleep='systemctl suspend'
 alias hibernate='systemctl hibernate'
 
 alias sunlab='sshfs les328@sunlab.cse.lehigh.edu:/home/les328/ ~/Documents/college/sunlab/'
+alias sunlab_remote='sshfs -o ssh_command="ssh -J les328@ssh.lehigh.edu" les328@sunlab.cse.lehigh.edu:/home/les328/ ~/Documents/college/sunlab/'
 alias sunlab_unmount='cd; fusermount3 -u ~/Documents/college/sunlab/'
 
 # Handy change dir shortcuts
