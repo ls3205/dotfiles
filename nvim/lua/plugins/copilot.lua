@@ -13,10 +13,10 @@ return {
 		},
 		build = "make tiktoken", -- Only on MacOS or Linux
 		opts = {
-			system_prompt = "#buffers:visible\nYou are a senior developer at a software consulting firm and your client has asked you a question. Please answer accordingly.\nFor any code that is written, it has been asked that you include as little comments as possible.\nThe question is as follows: ",
-			model = "gpt-4o",
+			system_prompt = "You are a senior developer at a software consulting firm and your client has asked you a question. Please answer accordingly.\nFor any code that is written, it has been asked that you include as little comments as possible.\nThe question is as follows: ",
+			model = "gpt-5.2-codex",
 			chat_autocomplete = false,
-			context = "#buffers:visible",
+			context = "#buffer:active",
 		},
 		-- See Commands section for default commands if you want to lazy load on them
 	},
