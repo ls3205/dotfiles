@@ -39,41 +39,106 @@ return {
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
 				},
-				-- jdtls = {
-				-- 	root_dir = function(...)
-				-- 		return require("lspconfig.util").root_pattern(".get")(...)
-				-- 	end,
-				-- },
-				tsserver = {
-					root_dir = function(...)
-						return require("lspconfig.util").root_pattern(".git")(...)
-					end,
-					single_file_support = false,
+				vtsls = {
+					filetypes = {
+						"vue",
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+					},
+					root_markers = {
+						"tsconfig.json",
+						"package.json",
+						"jsconfig.json",
+						".git",
+					},
 					settings = {
+						complete_function_calls = true,
+						vtsls = {
+							enableMoveToFileCodeAction = true,
+							autoUseWorkspaceTsdk = true,
+							experimental = {
+								maxInlayHintLength = 30,
+								completion = {
+									enableServerSideFuzzyMatch = true,
+								},
+							},
+							tsserver = {
+								globalPlugins = {
+									{
+										name = "@vue/typescript-plugin",
+										location = vim.fn.stdpath("data")
+											.. "/mason/packages/vue-language-server"
+											.. "/node_modules/@vue/typescript-plugin",
+										languages = { "vue" },
+										configNamespace = "typescript",
+										enableForWorkspaceTypeScriptVersions = true,
+									},
+								},
+							},
+						},
 						typescript = {
+							updateImportsOnFileMove = { enabled = "always" },
+							suggest = {
+								completeFunctionCalls = true,
+							},
 							inlayHints = {
-								includeInlayParameterNameHints = "literal",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-								includeInlayFunctionParameterTypeHints = true,
-								includeInlayVariableTypeHints = false,
-								includeInlayPropertyDeclarationTypeHints = true,
-								includeInlayFunctionLikeReturnTypeHints = true,
-								includeInlayEnumMemberValueHints = true,
+								enumMemberValues = { enabled = true },
+								functionLikeReturnTypes = { enabled = true },
+								parameterNames = { enabled = "literals" },
+								parameterTypes = { enabled = true },
+								propertyDeclarationTypes = { enabled = true },
+								variableTypes = { enabled = false },
 							},
 						},
 						javascript = {
-							inlayHints = {
-								includeInlayParameterNameHints = "all",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-								includeInlayFunctionParameterTypeHints = true,
-								includeInlayVariableTypeHints = true,
-								includeInlayPropertyDeclarationTypeHints = true,
-								includeInlayFunctionLikeReturnTypeHints = true,
-								includeInlayEnumMemberValueHints = true,
-							},
+							updateImportsOnFileMove = { enabled = "always" },
 						},
 					},
 				},
+
+				-- tsserver = {
+				-- 	root_dir = function(...)
+				-- 		return require("lspconfig.util").root_pattern(".git")(...)
+				-- 	end,
+				-- 	single_file_support = false,
+				-- 	plugins = {
+				-- 		{
+				-- 			name = "@vue/typescript-plugin",
+				-- 			location = vim.fn.stdpath("data")
+				-- 				.. "/mason/packages/vue-language-server"
+				-- 				.. "/node_modules/@vue/typescript-plugin",
+				-- 			languages = { "javascript", "typescript", "vue" },
+				-- 		},
+				-- 	},
+				-- 	settings = {
+				-- 		typescript = {
+				-- 			inlayHints = {
+				-- 				includeInlayParameterNameHints = "literal",
+				-- 				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				-- 				includeInlayFunctionParameterTypeHints = true,
+				-- 				includeInlayVariableTypeHints = false,
+				-- 				includeInlayPropertyDeclarationTypeHints = true,
+				-- 				includeInlayFunctionLikeReturnTypeHints = true,
+				-- 				includeInlayEnumMemberValueHints = true,
+				-- 			},
+				-- 		},
+				-- 		javascript = {
+				-- 			inlayHints = {
+				-- 				includeInlayParameterNameHints = "all",
+				-- 				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				-- 				includeInlayFunctionParameterTypeHints = true,
+				-- 				includeInlayVariableTypeHints = true,
+				-- 				includeInlayPropertyDeclarationTypeHints = true,
+				-- 				includeInlayFunctionLikeReturnTypeHints = true,
+				-- 				includeInlayEnumMemberValueHints = true,
+				-- 			},
+				-- 		},
+				-- 	},
+				-- },
 				html = {},
 				yamlls = {
 					settings = {
